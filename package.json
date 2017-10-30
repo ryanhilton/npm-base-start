@@ -1,17 +1,30 @@
 {
+  "name": "",
+  "version": "0",
+  "description": "",
+  "main": "",
+  "scripts": {
+    "compile-scss": "node-sass --output-style compressed -o assets/css dev-assets/scss",
+    "watch:compile-scss": "onchange 'dev-assets/scss/*.scss' -- npm run compile-scss",
+    "browser-sync": "browser-sync start --server --files './*.html, assets/css/*.css, assets/js/*.js'",
+    "uglify-js": "mkdir -p assets/js && uglifyjs dev-assets/js/*.js -c -o assets/js/main.js",
+    "watch:uglify-js": "onchange 'dev-assets/js/*.js' -- npm run uglify-js",
+    "bs-watch": "npm-run-all --parallel browser-sync watch:compile-scss watch:uglify-js"
+  },
+  "author": "Ryan Hilton",
   "devDependencies": {
+    "babel-core": "^6.26.0",
     "browser-sync": "^2.18.8",
     "gulp": "^3.9.1",
-    "gulp-plumber": "^1.1.0",
-    "gulp-sass": "^3.1.0",
+    "gulp-nunjucks-render": "^2.2.1",
     "gulp-util": "^3.0.8",
-    "node-sass": "^4.5.1",
+    "node-sass": "^4.5.3",
+    "npm-run-all": "^4.1.1",
+    "nunjucks": "^3.0.1",
+    "onchange": "^3.2.1",
     "plumber": "^0.4.8",
     "sass-loader": "^6.0.3",
-    "susy": "^2.2.12",
-    "webpack": "^2.3.1"
+    "uglify-es": "^3.1.3"
   },
-  "dependencies": {
-    "normalize.css": "^7.0.0"
-  }
+  "dependencies": {}
 }
