@@ -1,4 +1,4 @@
-// Includes
+// Including Dependencies
 let gulp            = require('gulp');
 let gulpUtil        = require('gulp-util');
 let browserSync     = require('browser-sync').create();
